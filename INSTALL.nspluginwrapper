@@ -1,0 +1,19 @@
+#!/bin/sh
+# $NetBSD$
+
+PATH=@PREFIX@/bin:$PATH
+
+case $STAGE in
+    POST-INSTALL)
+	nspluginwrapper -i @PREFIX@/lib/netscape/plugins/libflashplayer.so
+	;;
+esac
+
+
+case $STAGE in
+    DEINSTALL)
+	for wrapped in `nspluginwrapper -l | grep ^/` ; do
+	    nspluginwrapper -r $wrapped
+	done
+	;;
+esac

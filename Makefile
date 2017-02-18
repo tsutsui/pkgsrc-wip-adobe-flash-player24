@@ -18,8 +18,9 @@ NO_BIN_ON_FTP=		${RESTRICTED}
 NO_SRC_ON_CDROM=	${RESTRICTED}
 NO_SRC_ON_FTP=		${RESTRICTED}
 
-# On NetBSD, requires sufficiently new compat_linux.
-NOT_FOR_PLATFORM=	NetBSD-[0-6]*-* NetBSD-7.0.*-*
+# On NetBSD, requires sufficiently new compat_linux and
+# procfs_map.c fixes pulled after 6.1 and 7.0.
+NOT_FOR_PLATFORM=	NetBSD-[0-5]*-* NetBSD-6.[0-1].*-* NetBSD-7.0.*-*
 
 WRKSRC=			${WRKDIR}
 BUILD_DIRS=		# empty
@@ -27,8 +28,10 @@ BUILD_DIRS=		# empty
 CRYPTO=			yes
 
 EMUL_PLATFORMS=		linux-i386 linux-x86_64
-EMUL_MODULES.linux=	gtk2 x11 krb5 alsa curl nss nspr
-EMUL_REQD=		suse>=13.1
+EMUL_MODULES.linux=	gtk2 x11 glx krb5 alsa curl nss nspr
+# flashplayer 24 still supports OpenSUSE 11.3, but NetBSD 6.x uses 12.1
+# by default so I won't bother to test with 11.3.
+EMUL_REQD=		suse>=12.1
 
 .include "../../mk/bsd.prefs.mk"
 

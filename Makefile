@@ -7,7 +7,7 @@ DIST_SUBDIR=		${PKGNAME_NOREV}
 CATEGORIES=		multimedia www
 MASTER_SITES=		http://fpdownload.macromedia.com/get/flashplayer/pdc/${FLASH_VERSION}/
 
-MAINTAINER=		pkgsrc-users@NetBSD.org
+MAINTAINER=		tsutsui@NetBSD.org
 HOMEPAGE=		http://www.adobe.com/products/flashplayer.html
 COMMENT=		Adobe Flash Player Browser NPAPI plugin
 LICENSE=		flash-license

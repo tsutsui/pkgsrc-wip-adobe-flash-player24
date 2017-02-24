@@ -37,10 +37,8 @@ EMUL_REQD=		suse>=12.1
 
 .if ${EMUL_PLATFORM} == "linux-i386"
 FLASH_ARCH=		i386
-FLASH_LIBDIR=		lib
 .elif ${EMUL_PLATFORM} == "linux-x86_64"
 FLASH_ARCH=		x86_64
-FLASH_LIBDIR=		lib64
 .endif
 
 CONFLICTS=		adobe-flash-plugin-[0-9]*
